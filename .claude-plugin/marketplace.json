@@ -1,0 +1,16 @@
+{
+  "name": "juz40-plugins",
+  "description": "Juz40 team plugins: product discovery, PRD -> Confluence, Jira decomposition",
+  "owner": {
+    "name": "Yerkebulan Aimakhanov"
+  },
+  "plugins": [
+    {
+      "name": "juz40-pm",
+      "source": "./plugins/juz40-pm",
+      "description": "Product workflow for the Juz40 LMS: brainstorm an idea, grill it into decisions, write a PRD into Confluence, decompose it into DV Jira epics/stories/sub-tasks.",
+      "category": "productivity",
+      "keywords": ["prd", "confluence", "jira", "brainstorm", "grilling", "juz40"]
+    }
+  ]
+}
