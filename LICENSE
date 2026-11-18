@@ -22,8 +22,8 @@ SOFTWARE.
 
 ---
 
-Portions of skills/grill/SKILL.md adapt the "grilling" and "grill-with-docs" skills from
-https://github.com/mattpocock/skills, Copyright (c) Matt Pocock, MIT License.
+Two skills in plugins/juz40-pm/skills/ are unmodified copies of third-party work and keep
+their own licenses:
 
-Portions of skills/prd/references/prd-template.md and skills/prd/SKILL.md adapt the
-"write-spec" skill from Anthropic's product-management plugin, Apache License 2.0.
+- grilling               MIT, Copyright (c) Matt Pocock      (see skills/grilling/LICENSE)
+- product-brainstorming  Apache License 2.0, Anthropic       (see skills/product-brainstorming/LICENSE)

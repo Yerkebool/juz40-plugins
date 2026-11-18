@@ -8,7 +8,7 @@
     {
       "name": "juz40-pm",
       "source": "./plugins/juz40-pm",
-      "description": "Product workflow for the Juz40 LMS: brainstorm an idea, grill it into decisions, write a PRD into Confluence, decompose it into DV Jira epics/stories/sub-tasks.",
+      "description": "Product workflow for the Juz40 LMS: brainstorm an idea, grill it into decisions, write a PRD into Confluence, decompose it into DV Jira epics and stories.",
       "category": "productivity",
       "keywords": ["prd", "confluence", "jira", "brainstorm", "grilling", "juz40"]
     }

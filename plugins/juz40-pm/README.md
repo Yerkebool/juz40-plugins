@@ -1,37 +1,43 @@
 # juz40-pm
 
-Four skills covering the path from "I have an idea" to "there are tickets in DV".
+Four skills.
 
-| Skill | Invoke | Use it when |
+| Skill | Where it comes from | What it does |
 |---|---|---|
-| `brainstorm` | `/brainstorm` | No agreed solution yet. Widen the option space, kill weak ideas early. |
-| `grill` | `/grill` | A plan exists. Interrogate it round by round, then write the decisions into `docs/`. |
-| `prd` | `/prd` | Decisions are settled. Write the PRD (Russian) and publish it to Confluence. |
-| `jira-tasks` | `/jira-tasks` | A PRD exists. Dry-run a DV epic/story/sub-task tree, then create it. |
+| `product-brainstorming` | Exact copy from Anthropic's `product-management` plugin | Think through an idea with a sparring partner |
+| `grilling` | Exact copy from `mattpocock/skills` | Question a plan until every decision is settled |
+| `prd` | Ours | Fill a PRD template and publish it to Confluence |
+| `jira-tasks` | Ours | Create an Epic and Stories in DV from templates |
 
-They chain, but each works alone, and each one *offers* the next step rather than
-invoking it — you stay in control of when work becomes outward-facing.
+## Templates
 
-## Guardrails worth knowing
+Each template is one markdown file. Its first line is a comment that tells Claude when to use it.
 
-- `prd` refuses to paper over unsettled decisions: three or more open fundamentals and it
-  sends you to `grill` first.
-- `prd` shows the draft before publishing to Confluence; `jira-tasks` shows the whole tree
-  before creating a single issue.
-- `jira-tasks` asks for assignee, estimate and sprint instead of guessing — DV rejects
-  issues without them.
-- Both Atlassian skills search for an existing page/ticket before creating a duplicate.
+```
+skills/prd/templates/
+  new-feature.md     <- the feature does not exist yet
+  rework.md          <- an existing feature is being changed or rebuilt
 
-## Config
+skills/jira-tasks/templates/
+  epic.md
+  story.md
+```
 
-- Confluence space and parent page: `skills/prd/references/confluence.md` — blank on first
-  run, fill it in once and later runs stop asking.
-- Jira cloud ID, project key, field rules: `skills/jira-tasks/references/jira.md`. Where
-  the frontend repo's `jira-workflow` skill disagrees, that skill wins.
+The four files in there now are drafts. Replace their contents with the team's real
+templates and keep the first comment line.
 
-## Attribution
+To add another PRD type, add a file to `skills/prd/templates/` with its own first line,
+for example `<!-- Use when: a small improvement to an existing screen. -->`. Nothing else
+needs to change.
 
-The round-based interview method in `grill` is adapted from
-[mattpocock/skills](https://github.com/mattpocock/skills) (`grilling`, `grill-with-docs`), MIT.
-The PRD section structure in `prd` draws on Anthropic's `product-management` plugin
-(`write-spec`), Apache-2.0.
+## Settings
+
+- Confluence space and parent page: `skills/prd/references/confluence.md`
+- Jira project and rules: `skills/jira-tasks/references/jira.md`
+
+## Licenses of the copied skills
+
+- `skills/grilling/` — MIT, copyright Matt Pocock. See `skills/grilling/LICENSE`.
+- `skills/product-brainstorming/` — Apache-2.0, Anthropic. See `skills/product-brainstorming/LICENSE`.
+
+Both files are unmodified copies.

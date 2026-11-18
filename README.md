@@ -2,21 +2,20 @@
 
 Marketplace repo for the Juz40 team's Claude Code plugins.
 
-## Install (local, no GitHub needed)
+## Install
 
 ```
-/plugin marketplace add /Users/yerkebulanaimakhanov/projects/juz40-plugins
+/plugin marketplace add Yerkebool/juz40-plugins
 /plugin install juz40-pm@juz40-plugins
 ```
 
-Once pushed to GitHub, the first line becomes `/plugin marketplace add <org>/juz40-plugins`
-and everyone on the team installs the same way (this is how `su10-plagins` works).
+The repo is private, so this works only for GitHub accounts that have access to it.
 
 ## Plugins
 
 | Plugin | What it does |
 |---|---|
-| `juz40-pm` | Product workflow: brainstorm → grill → PRD in Confluence → Jira epics/stories/sub-tasks |
+| `juz40-pm` | Product workflow: brainstorm → grill → PRD in Confluence → Jira epics and stories |
 
 ## Layout
 
