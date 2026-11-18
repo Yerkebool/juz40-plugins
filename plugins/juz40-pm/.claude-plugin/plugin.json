@@ -1,16 +1,28 @@
 {
   "name": "juz40-pm",
-  "version": "0.2.0",
-  "description": "Product workflow for the Juz40 LMS: brainstorm, grill, write a PRD into Confluence, create Jira epics and stories in the DV project.",
+  "version": "0.4.0",
+  "description": "Product workflow for the Juz40 LMS: one flow from idea to Jira — brainstorm, grill until nothing is vague, PRD in Confluence assembled from blocks, Jira stories and sub-tasks in DV, and updates when decisions change.",
   "author": {
     "name": "Yerkebulan Aimakhanov"
   },
-  "keywords": ["prd", "confluence", "jira", "brainstorm", "grilling", "product", "juz40"],
+  "keywords": [
+    "brainstorm",
+    "confluence",
+    "feature-flow",
+    "grilling",
+    "jira",
+    "juz40",
+    "prd",
+    "prd-update",
+    "product"
+  ],
   "license": "MIT",
   "skills": [
+    "./skills/feature-flow",
     "./skills/product-brainstorming",
     "./skills/grilling",
     "./skills/prd",
-    "./skills/jira-tasks"
+    "./skills/jira-tasks",
+    "./skills/prd-update"
   ]
 }

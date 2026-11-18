@@ -1,39 +1,47 @@
 # juz40-pm
 
-Four skills.
+Product workflow for the Juz40 team: from an idea to a PRD in Confluence and issues in Jira.
+
+## How to use
+
+Say what you want to build. `feature-flow` takes it from there:
+
+```
+brainstorm → grill → readiness check → PRD → Jira
+```
+
+You can start in the middle (a Jira key, a draft, notes) and skip stages that are already done. The readiness check is never skipped: nothing vague goes into the PRD as a fact.
+
+When a decision changes later, use `prd-update`.
+
+## Skills
 
 | Skill | Where it comes from | What it does |
 |---|---|---|
+| `feature-flow` | Ours | Runs the whole flow, keeps the brief, checks readiness, sends vague answers to a second grilling pass |
 | `product-brainstorming` | Exact copy from Anthropic's `product-management` plugin | Think through an idea with a sparring partner |
 | `grilling` | Exact copy from `mattpocock/skills` | Question a plan until every decision is settled |
-| `prd` | Ours | Fill a PRD template and publish it to Confluence |
-| `jira-tasks` | Ours | Create an Epic and Stories in DV from templates |
+| `prd` | Ours | Assembles the PRD from blocks to fit the feature, checks the text, publishes to Confluence |
+| `jira-tasks` | Ours | Stories and Sub-tasks in DV from templates (no epics), keys written back into the PRD |
+| `prd-update` | Ours | Carries a changed decision through the PRD, Jira, backend contracts and test cases |
 
-## Templates
+## Where the standard lives
 
-Each template is one markdown file. Its first line is a comment that tells Claude when to use it.
+| What | File |
+|---|---|
+| What must be known before writing, sizes, what counts as a vague answer | `skills/feature-flow/references/readiness.md` |
+| The brief (handoff between stages) | `skills/feature-flow/references/brief.md` |
+| PRD blocks: which are required for which size, triggers, form | `skills/prd/references/blocks.md` |
+| How to write without filler, self-check | `skills/prd/references/writing.md` |
+| Confluence space and page names | `skills/prd/references/confluence.md` |
+| Jira project and rules | `skills/jira-tasks/references/jira.md` |
+| Jira description templates | `skills/jira-tasks/templates/` |
 
-```
-skills/prd/templates/
-  new-feature.md     <- the feature does not exist yet
-  rework.md          <- an existing feature is being changed or rebuilt
+To change the team standard, edit these files and bump the version in `.claude-plugin/plugin.json`.
 
-skills/jira-tasks/templates/
-  epic.md
-  story.md
-```
+## Not here
 
-The four files in there now are drafts. Replace their contents with the team's real
-templates and keep the first comment line.
-
-To add another PRD type, add a file to `skills/prd/templates/` with its own first line,
-for example `<!-- Use when: a small improvement to an existing screen. -->`. Nothing else
-needs to change.
-
-## Settings
-
-- Confluence space and parent page: `skills/prd/references/confluence.md`
-- Jira project and rules: `skills/jira-tasks/references/jira.md`
+Test cases: QA has its own skill. The PRD gives it stable IDs (`US-01`, `R-01`) and names the test-case page `Тест-кейсы: DV-XXXX — <Название> — Full + Edge Cases`.
 
 ## Licenses of the copied skills
 

@@ -15,7 +15,7 @@ The repo is private, so this works only for GitHub accounts that have access to 
 
 | Plugin | What it does |
 |---|---|
-| `juz40-pm` | Product workflow: brainstorm → grill → PRD in Confluence → Jira epics and stories |
+| `juz40-pm` | Product workflow: brainstorm → grill → readiness check → PRD in Confluence → Jira, plus PRD updates when decisions change |
 
 ## Layout
 
