@@ -9,7 +9,7 @@ Marketplace repo for the Juz40 team's Claude Code plugins.
 /plugin install juz40-pm@juz40-plugins
 ```
 
-The repo is private, so this works only for GitHub accounts that have access to it.
+The repo is public: anyone can install the plugin. Only the owner can change it.
 
 ## Plugins
 
