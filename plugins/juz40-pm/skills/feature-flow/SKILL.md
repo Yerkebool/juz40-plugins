@@ -33,7 +33,7 @@ Talk to the PM in the language they write in (Russian or Kazakh).
    - Jira DV: the given key, and `project = DV AND text ~ "<keyword>" ORDER BY created DESC` for related work.
    - Confluence SD: the base feature, a previous version, related specs (`space = SD AND text ~ "<keyword>"`).
    Show what you found in at most five lines, with links.
-4. **Class.** Propose type, audience and Product complexity by `complexity.md`, naming the criterion that fired: «high — трогает оплату (критерий 1)». The PM confirms. The owner confirms too: if they haven't yet, it is an open question that must close before the owner's OK in stage 8.
+4. **Class.** Propose type, audience and Product complexity by `complexity.md`, naming the criterion that fired: «high — трогает оплату (критерий 1)». Name who reviews and approves by §6. The PM confirms. The owner confirms too: if they haven't yet, it is an open question that must close before the owner's OK in stage 8.
 5. **Path.** For someone who joins without context, show the path for this class in at most six lines: the stages ahead, what each produces, who approves where. Example: «Фича · студенты · mid: прожарка → метрика → PRD (2 страницы) → макеты → замечания → «ок» оунера → Sub-tasks. Кор PM не нужен».
 6. **Баг** → stop here. Load `jira-tasks` in bug mode; QA takes it to `/triage`. No brainstorm, no PRD.
 7. **Story.** Find the DV Story for this task. If there is none, load `jira-tasks` in intake mode to create it. Discovery runs under that Story.
@@ -71,7 +71,7 @@ Check the brief against `readiness.md`, including the class itself. Show:
 
 ✅ settled · ⚠ vague · ❌ missing · ⛔ contradicts an earlier answer or an existing doc.
 
-- **All ✅** → show the full brief, the PM confirms it, go on.
+- **All ✅** → show the full brief, the PM confirms it, go on. Mid or high and a non-PM leads: the PM-partner reads the brief now (`complexity.md` §6); their remarks go through `loops.md`.
 - **Anything else** → name the loop (`loops.md`) and run the second grilling pass on the gaps only. Each question quotes the vague answer, says why it isn't enough to build from, and offers concrete options with a recommendation.
 - Limits and escalation: `loops.md` rules 3 and 4. The PM can say «пиши с открытыми вопросами» at any point, except for high blockers (rule 3).
 
@@ -86,6 +86,9 @@ Never let a vague answer pass into the PRD as a fact.
 
 ## 5. Core PM approval — high only
 
+Who approves: `complexity.md` §6. Skip this stage when the core PM leads the task.
+
+
 1. Show the brief to the PM as a summary for the core PM, at most 15 lines: class, problem, direction, metric, riskiest assumption, open questions.
 2. Load `jira-tasks` in approval mode to create the Sub-task «[PM] Апрув кор PM: берём в работу».
 3. Publish the PRD only after the core PM's «да». The PM may let you draft it meanwhile.
@@ -93,6 +96,8 @@ Never let a vague answer pass into the PRD as a fact.
 ## 6. PRD
 
 Load `prd` with the confirmed brief. One page for an Изменение; two pages (for people and for agents) for a Фича and an Эпик.
+
+Mid or high and a non-PM leads: the PM-partner reads the PRD before it goes to the owner.
 
 ## 7. Hand off to design
 

@@ -1,4 +1,4 @@
-<!-- Use for: Sub-task of a core PM approval (high only). Summary: «[PM] Апрув кор PM: берём в работу» after the brief, or «[PM] Апрув кор PM: пакет перед разработкой» before development. Assignee: the core PM. Replace every <…>. -->
+<!-- Use for: Sub-task of a core PM approval (high only). Summary: «[PM] Апрув кор PM: берём в работу» after the brief, or «[PM] Апрув кор PM: пакет перед разработкой» before development. Assignee: the core PM (`../../feature-flow/references/complexity.md` §6). Not created when the core PM leads the task. Replace every <…>. -->
 Нужно решение кор PM: <берём в работу / пакет готов к разработке>.
 
 * Класс: <Фича> · <студенты> · high — <критерий>

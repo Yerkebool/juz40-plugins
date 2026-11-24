@@ -1,6 +1,6 @@
 {
   "name": "juz40-pm",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "description": "Product discovery for the Juz40 LMS (changes, features, epics), everything except design: context document, task class (type, audience, Product complexity low/mid/high), brainstorm and grilling with must-ask questions and loops back, readiness gate, metric, PRD in Confluence from templates by type, owner and core PM approvals, Jira stories, sub-tasks and bugs from templates, and updates when decisions change.",
   "author": {
     "name": "Yerkebulan Aimakhanov"

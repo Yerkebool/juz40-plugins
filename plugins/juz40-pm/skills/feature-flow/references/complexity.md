@@ -94,8 +94,22 @@ Middle and low differ only in how deep discovery goes. After the owner's OK thei
 | Grilling | Required topics of the type | All topics of the type | All topics of the type, plus 9 (data), 14 (analytics) and 15 (release) |
 | Readiness gate | ⚠ outside problem, solution and rules may become an open question without a second pass | ⚠ in rules and edge cases always gets a second pass | Every ⚠ gets a second pass. A cold read by a separate agent before the gate passes |
 | Metric before PRD | Студенты: «сейчас → цель → где смотрим». Сотрудники: one line | Same as low | Студенты: baseline with real numbers, source and date. «Не измерено» is not accepted |
-| Core PM approval | — | — | Twice: «берём в работу» after the brief, and the package before development. Each is a Sub-task |
+| PM-partner review (§6) | — | When a non-PM leads: the brief before the PRD, the PRD before the owner | Same as mid |
+| Core PM approval (§6) | — | — | Twice: «берём в работу» after the brief, and the package before development. Each is a Sub-task. Not needed when the core PM leads the task |
 | PRD blocks added on top of the type | — | — | Риски, Релиз, Что проверяем, Данные |
 | Release in the PRD | Студенты: the owner decides on toggle and cohorts; write the decision | Same as low | Студенты: toggle OFF by default, cohorts by subject or stream, 3–7 days each. Сотрудники: everyone at once |
 | ПБР | The owner decides | The owner decides | The owner decides; recommend holding it |
 | Owner's OK | PRD, mockups, test cases | Same | Same, plus core PM |
+
+## 6. Who reviews and approves
+
+The core PM is the **Head of Discovery**. The Discovery department has PMs, designers and AI engineers; the Head of IT is above it.
+
+| Who leads the task | PM-partner review (mid, high) | Core PM approval (high) |
+|---|---|---|
+| A PM of the Discovery department | — | Head of Discovery |
+| Head of Discovery | — | Not needed |
+| Not a PM: designer, AI engineer, developer | A PM of the Discovery department: reads the brief before the PRD and the PRD before it goes to the owner; their remarks are loop signals (`loops.md`) | Head of Discovery |
+
+- The PM-partner is the PM the lead works with on this product. The PM-partner reviews; they don't approve. The owner's OK and the core PM's approval stay as in §5.
+- The plugin keeps roles, not names. At intake, ask the lead once who the Head of Discovery and the PM-partner are, record the names in the brief, and look up their Jira account IDs with `lookupJiraAccountId`. Never hardcode names or IDs.
