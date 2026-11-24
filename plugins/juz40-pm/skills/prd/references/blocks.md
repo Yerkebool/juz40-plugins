@@ -1,10 +1,21 @@
 # PRD blocks
 
-A PRD is assembled from blocks. Some are required for the size; the rest go in only when their trigger fires. Blocks always appear in the order below. Number the sections from 1 in the final document, skipping the lead and the passport.
+A PRD is assembled from blocks. Some are required for the type; the rest go in only when their trigger fires. Blocks always appear in the order below. Number the sections from 1 in the final document, skipping the lead and the passport.
 
-Legend: **И** = Изменение, **Ф** = Фича, **Б** = Большая фича. ● required · ○ only when the trigger fires · — never.
+**Where blocks live:**
 
-| # | Block | И | Ф | Б | Trigger (for ○) |
+- **Изменение:** one page with every block it needs (`../templates/izmenenie.md`).
+- **Фича, Эпик:** two pages. The **PRD для людей** (`../templates/people.md`) carries blocks 1 Проблема, 2 Цель, 3 Решение, 4 Что меняется (as «Кого касается»), 5 Сценарий (as «Как это работает», 5–7 steps), 18 Не входит (as «Чего не будет»), 26 Решения, 27 Открытые вопросы, in its own plain form. The **PRD для агентов** (`../templates/feature.md`, `../templates/epic.md`) carries every other block, and links to the parent for those eight instead of repeating them. Block 5 goes on the agent page too only when the 5–7 steps are not enough to build from.
+
+Legend: **И** = Изменение, **Ф** = Фича, **Э** = Эпик. ● required · ○ only when the trigger fires · — never.
+
+**Added by the class** (`../../feature-flow/references/complexity.md`), for any type:
+
+- **high:** 13 Данные, 21 Релиз, 23 Что проверяем, 25 Риски.
+- **Студенты:** 16 Аналитика when the goal has a metric; 21 Релиз when there is a toggle or cohorts.
+- **Сотрудники:** 2 Цель says in one line why there is no metric after release.
+
+| # | Block | И | Ф | Э | Trigger (for ○) |
 |---|---|---|---|---|---|
 | 0 | Лид | ● | ● | ● | |
 | 0 | Паспорт | ● | ● | ● | |
@@ -14,8 +25,7 @@ Legend: **И** = Изменение, **Ф** = Фича, **Б** = Большая 
 | 4 | Что меняется и что нет | ● | ● | ● | |
 | 5 | Сценарий | ○ | ● | ● | И: the change alters a sequence of steps |
 | 6 | Экраны и элементы | ○ | ○ | ○ | UI changes and the design alone does not say how elements behave |
-| 7 | User Stories | — | ● | ● | И uses «Критерии приёмки» instead |
-| 7 | Критерии приёмки | ● | — | — | |
+| 7 | User Stories | ● | ● | ● | QA writes test cases from them, so every type has at least one |
 | 8 | Правила и логика | ○ | ● | ● | И: any rule beyond what the AC say |
 | 9 | Роли и доступ | ○ | ○ | ● | more than one role, or anyone must not see or do something |
 | 10 | Сроки и периоды | ○ | ○ | ○ | behaviour depends on dates, deadlines, weeks, months, schedules |
@@ -51,12 +61,17 @@ A two-column table. Rows:
 
 | Поле | Значение |
 |---|---|
-| Статус | DRAFT |
-| Размер | Изменение / Фича / Большая фича |
+| Статус | Черновик · На согласовании · Согласовано оунером <дата> · В разработке · Выпущено (see `confluence.md`) |
+| Класс | Фича · студенты · high |
 | Продукт и платформы | Juz40: кабинет родителя (Web, App), кабинет куратора (Web) |
-| Владелец (PM) | name |
-| Заказчик / согласующий | name or «не определён (ОВ-N)» |
-| Стори | DV-XXXX (several for a Большая фича), or «будет создана» |
+| Ведущий (PM) | name |
+| Оунер | name |
+| Кор PM | name (high only) |
+| Заказчик | name or «не определён (ОВ-N)» |
+| Согласовано оунером | «имя, дата» or «нет» |
+| Апрув кор PM | «✅ имя, дата, DV-XXXX» (high only) |
+| Стори | DV-XXXX (several for an Эпик) |
+| PRD для людей / PRD для агентов | link to the other page of the pair (Фича, Эпик) |
 | Дизайн | Figma link per role, or «без дизайна — …» |
 | Связанные документы | base feature, previous version |
 | Backend contracts | child page `Backend contracts: <Название>` (backend team) |
@@ -91,12 +106,9 @@ One sub-heading per story: `US-01 · Название`. Then a table:
 | Действие | хочу … |
 | Ценность | чтобы … |
 | Критерии приёмки | numbered list |
-| Версия | v1 (Большая фича only) |
+| Версия | v1 (Эпик only) |
 
-Each acceptance criterion is checkable with yes/no and starts with a tag: **[Happy path]**, **[Состояние]**, **[Ограничение]**, **[Edge]**, **[Regress]**, **[Нельзя]** (what must not happen). Every story has at least one [Edge] or [Нельзя].
-
-### Критерии приёмки (Изменение)
-A numbered list of the same checkable, tagged criteria, no story wrapper.
+Each acceptance criterion is checkable with yes/no and starts with a tag: **[Happy path]**, **[Состояние]**, **[Ограничение]**, **[Edge]**, **[Regress]**, **[Нельзя]** (what must not happen). Every story has at least one [Edge] or [Нельзя]. An Изменение usually has one or two stories; for it, «Ценность» may be one line.
 
 ### Правила и логика
 Numbered rules `R-01`, `R-02`, …. Each rule is one statement with its numbers and ends with the stories it serves: «(US-01, US-03)». A rule that is not served by any story is either a missing story or not needed.
@@ -140,6 +152,10 @@ A table «Что нужно | Зачем | Кто | Статус (ЕСТЬ / Н�
 ### Релиз
 Order of deployment, toggles, pilot group, what ships together, what happens if it must be rolled back. If mobile is in scope, say whether web waits for it.
 
+- **Студенты · high:** toggle OFF by default; cohorts by subject or stream, in order, 3–7 days each; the owner decides each move to the next cohort.
+- **Студенты · low, mid:** the owner's decision on toggle and cohorts, in one line.
+- **Сотрудники:** «Сразу всем после решения оунера о релизе».
+
 ### Вехи
 A table «Этап | Оценка | Дата» (design, contract, backend, frontend / mobile, QA and release). «Не оценено» is a valid value. Then one line: **Что можно делать независимо от бэкенда:** ….
 
@@ -165,7 +181,7 @@ A short list from the brainstorm. Not a promise.
 The announcement text in Kazakh as a quote, one per audience (оқушы, ата-ана, куратор). If not ready: «Готовим после утверждения дизайна».
 
 ### Задачи в Jira
-The Stories and their sub-tasks with keys and one line each; for a Большая фича, which version each Story delivers. Filled by `jira-tasks`.
+The Stories and their sub-tasks with keys and one line each; for an Эпик, which version each Story delivers. Filled by `jira-tasks`.
 
 ### История изменений
 A table «Дата | Автор | Что изменилось».

@@ -1,5 +1,14 @@
-<!-- Use for: Sub-task. Summary starts with the discipline: [DESIGN], [BACK], [FRONT], [MOBILE], [QA], [PM]. Replace every <…>. -->
+<!-- Use for: Sub-task by discipline. Summary starts with the discipline: [DESIGN], [FRONT], [MOBILE], [QA], [PM]. [BACK] is created by backend from the contracts page. Replace every <…>; take «Готово, когда» from the table below and add what the PRD makes specific. -->
 <Что сделать, одним-двумя предложениями.>
 
 * По спеке: <разделы и ID из PRD, например «US-02, R-04, R-05»>
 * Готово, когда: <проверяемый результат>
+
+<!--
+Готово, когда — по дисциплине:
+[DESIGN]  Макеты на SU10 по всем US, со всеми состояниями (пусто, ошибка, нет доступа); дизайнер принял; ссылка в паспорте PRD.
+[FRONT]   Web по контрактам и макетам; все AC из перечисленных US выполняются на Preprod; ивенты аналитики из PRD навешаны (студенты).
+[MOBILE]  App по контрактам и макетам; все AC выполняются на Preprod; поведение старых версий приложения как в PRD.
+[QA]      Тест-кейс на каждый AC; прогон на Preprod пройден; сверка с Figma без расхождений.
+[PM]      Метрика после релиза: было → цель → стало → вывод записаны; решение оунера «оставить / доработать / убрать» (студенты).
+-->

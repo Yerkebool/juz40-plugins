@@ -7,8 +7,12 @@ Keep it in the conversation, in this shape. Update it after every round; show it
 ```markdown
 # Бриф: <название>
 
-Размер: Изменение | Фича | Большая фича — <почему, одной строкой>
-Источник: <DV-XXXX / ссылка / кто попросил>
+Класс: <Изменение | Фича | Эпик> · <студенты | сотрудники: роль> · <low | mid | high>
+Почему такой класс: <какой критерий из complexity.md сработал>
+Класс подтвердили: PM <да / нет> · оунер <да / ждём>
+Story: <DV-XXXX>
+Оунер: <имя> · Кор PM: <имя, только high>
+Источник: <ссылка / кто попросил>
 Язык документа: RU | KZ
 
 ## Проблема
@@ -67,6 +71,17 @@ Keep it in the conversation, in this shape. Update it after every round; show it
 | # | Вопрос | Кто отвечает | К какому сроку |
 |---|---|---|---|
 
+## Апрувы
+| Что | Кто | Решение | Когда | Где записано |
+|---|---|---|---|---|
+| Класс | оунер | | | |
+| Берём в работу (high) | кор PM | | | Sub-task DV-… |
+| Пакет: PRD, макеты, тест-кейсы | оунер (+ кор PM для high) | | | паспорт PRD |
+
+## Петли
+| Когда | Сигнал | Куда вернулись | Что поменялось |
+|---|---|---|---|
+
 ## Идеи на потом
 - …
 
@@ -78,4 +93,4 @@ Keep it in the conversation, in this shape. Update it after every round; show it
 
 - Write what was said or found, not what you think it should be. A proposal of yours goes in only after the PM accepts it; then it is a decision with the PM as «кто решил».
 - A fact you looked up carries its link in «Источники».
-- Empty sections stay in the brief as «—» until the readiness check decides whether the size needs them.
+- Empty sections stay in the brief as «—» until the readiness check decides whether the class needs them.

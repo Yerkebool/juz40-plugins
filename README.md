@@ -15,7 +15,7 @@ The repo is public: anyone can install the plugin. Only the owner can change it.
 
 | Plugin | What it does |
 |---|---|
-| `juz40-pm` | Product workflow: brainstorm → grill → readiness check → PRD in Confluence → Jira, plus PRD updates when decisions change |
+| `juz40-pm` | Product discovery, everything except design: context document → task class (low / mid / high) → brainstorm → grill → metric → PRD for people + PRD for agents in Confluence → owner's OK → Jira, plus PRD updates when decisions change |
 
 ## Layout
 

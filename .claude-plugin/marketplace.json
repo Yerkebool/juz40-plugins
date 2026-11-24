@@ -8,7 +8,7 @@
     {
       "name": "juz40-pm",
       "source": "./plugins/juz40-pm",
-      "description": "Product workflow for the Juz40 LMS: one flow from idea to Jira — brainstorm, grill until nothing is vague, PRD in Confluence assembled from blocks, DV stories and sub-tasks, and PRD updates when decisions change.",
+      "description": "Product discovery for the Juz40 LMS (changes, features, epics), everything except design: context document, task class (type, audience, Product complexity low/mid/high), brainstorm and grilling with must-ask questions and loops back, metric, PRD for people + PRD for agents in Confluence, owner and core PM approvals, Jira stories, sub-tasks and bugs, and PRD updates when decisions change.",
       "category": "productivity",
       "keywords": [
         "prd",
@@ -18,7 +18,11 @@
         "grilling",
         "feature-flow",
         "prd-update",
-        "juz40"
+        "juz40",
+        "context-doc",
+        "complexity",
+        "epic",
+        "metrics"
       ]
     }
   ]

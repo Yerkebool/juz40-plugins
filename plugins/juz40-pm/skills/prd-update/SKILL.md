@@ -11,7 +11,7 @@ Uses the same block rules as `prd` (`../prd/references/blocks.md`, `../prd/refer
 
 ## 1. Read the current state
 
-- The PRD: `getConfluencePage` with `contentFormat: html`. HTML keeps inline comments, macros and smart links when the page is written back; markdown would lose them.
+- The PRD: both pages for a Фича or Эпик («PRD для людей» and its child «PRD для агентов: …»), one page for an Изменение. `getConfluencePage` with `contentFormat: html`. HTML keeps inline comments, macros and smart links when the page is written back; markdown would lose them.
 - Its child pages: `getConfluencePageDescendants`. Note whether `Backend contracts: …` and `Тест-кейсы: …` exist.
 - Its Jira issues: from the passport and «Задачи в Jira»; read each with `getJiraIssue`, including status.
 
@@ -20,6 +20,8 @@ Uses the same block rules as `prd` (`../prd/references/blocks.md`, `../prd/refer
 Ask, unless already said: **what** changes, **who** decided, **when**, **why**. Treat vague answers as in grilling: «примерно», «как-нибудь», «разработчики решат» are not decisions. Offer concrete options with a recommendation.
 
 If development has already started on what changes (an issue In Progress or Done), say so plainly: the change has a cost, and someone has to agree to it.
+
+This skill applies one concrete decision. If what came in is a remark rather than a decision (from ПБР, QA `/spec-readiness`, the designer), or it changes the direction or the class, it is a loop: sort it by `../feature-flow/references/loops.md`, run the grilling or brainstorm it points to, and come back here with the decision.
 
 ## 3. Find everything it touches
 
@@ -53,6 +55,8 @@ Then the outside impact: which issues change and how, which teams need to know. 
 - Add a row to «Решения» (create the block if missing): «Вопрос | Решение | Кто решил | Когда».
 - Add a row to «История изменений» (create it if missing): date, author, what changed with the IDs.
 - Update «Обновлён» in the passport.
+- Change each fact on the page where it lives (`../prd/references/blocks.md`, «Where blocks live»): why, what, decisions and open questions on PRD для людей; stories, rules, data and release on PRD для агентов. Keep both pages' status equal.
+- If the change alters the direction, the scope or the class and the status is «Согласовано оунером»: set «На согласовании» and tell the PM the owner's OK is needed again, and the core PM's for high (`loops.md`, rule 6).
 
 **Jira** (after the same approval):
 

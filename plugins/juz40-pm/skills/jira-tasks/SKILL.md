@@ -1,33 +1,44 @@
 ---
 name: jira-tasks
-description: Create Jira Stories and optional Sub-tasks in the DV project from a Juz40 PRD in Confluence, using the team's issue templates, and write the keys back into the PRD. The team does not use epics. Use when the user says "create tickets", "создай стори", "нарежь задачи", "заведи в джиру", or right after a PRD is published.
+description: Create and fill Juz40 Jira issues in the DV project from the team's templates — the Story at intake, approval Sub-tasks for the core PM, the Story description and discipline Sub-tasks after the owner's OK on the PRD, and Bugs. Writes the keys back into the PRD. The team does not use epics. Use when the user says "create tickets", "создай стори", "нарежь задачи", "заведи в джиру", "заведи баг", or when feature-flow calls it.
 ---
 
 # Jira tasks
 
-Cut a PRD into DV Stories. The team works in Stories only: never create an Epic. Settings and rules: `references/jira.md` (read before the first Jira call). Description templates: `templates/` (the first line of each file says which issue type it is for).
+DV works in Stories and Sub-tasks, plus Bugs. Never create an Epic. Settings and rules: `references/jira.md` (read before the first Jira call). Templates: `templates/` (the first line of each says what it is for).
+
+## Modes
+
+| Mode | When | Creates | Template |
+|---|---|---|---|
+| **Intake** | `feature-flow` stage 0, the task has no Story | One Story with a short description | `story-intake.md` |
+| **Approval** | High: core PM approval of the brief or the package | A Sub-task under the Story | `approval.md` |
+| **After the owner's OK** | The PRD is «Согласовано оунером» | Fills the Story; Sub-tasks by discipline; Stories per version for an Эпик | `story.md`, `subtask.md` |
+| **Bug** | It worked before or works differently from the PRD | One Bug | `bug.md` |
 
 ## 1. Read the source
 
-- A Confluence PRD → `getConfluencePage` (markdown). This is the normal case.
-- A Jira key → `getJiraIssue`; if it links a PRD, read that too.
-- No PRD yet: say so and offer `prd` first. Plain text works only for a single small Story.
+- **Intake:** the brief (class, owner, one-line description).
+- **Approval:** the brief or the PRD, and the Story.
+- **After the owner's OK:** the PRD (`getConfluencePage`, markdown): PRD для агентов for a Фича or an Эпик, the single page for an Изменение. Check the passport: status «Согласовано оунером» and the owner's approval recorded. If not, say so and stop: Sub-tasks are cut only after the owner's OK.
+- **Bug:** what the PM or QA reported; the PRD of the feature, if there is one, to quote the broken `US-…` or `R-…`.
 
-Then look for what already exists:
-- the Story the PRD came from (passport «Стори»);
-- duplicates and related Stories: `project = DV AND text ~ "<keyword>" ORDER BY created DESC`.
-
-Show what you found before proposing anything.
+Then look for what already exists: the Story (passport «Стори»), duplicates and related issues (`project = DV AND text ~ "<keyword>" ORDER BY created DESC`). Show what you found before proposing anything.
 
 ## 2. Plan the issues
 
-By the PRD's size:
+**Intake:** one Story. Summary: what the user gets, in the PM's language.
 
-- **Изменение / Фича** → one Story. If a Story already exists with only a link in its description, plan to fill its description, not to create a new one.
-- **Большая фича** → one Story per version or stage from «Версии», each a piece users can see working. Summaries carry the version: «<Название> · v1: …». The Stories are linked to each other («Relates») and each one links the PRD.
-- **Sub-tasks** → propose them by discipline from «Ответственные»: `[DESIGN]`, `[BACK]`, `[FRONT]`, `[MOBILE]`, `[QA]`, `[PM]`. Create them only if the PM says yes.
+**Approval:** one Sub-task, «[PM] Апрув кор PM: берём в работу» or «[PM] Апрув кор PM: пакет перед разработкой», assigned to the core PM.
 
-Fill the matching template for each issue. Acceptance criteria are copied from the PRD with their IDs (`US-01`, `R-03`), not retold. Summaries are about what the user gets, in the PRD's language.
+**After the owner's OK:**
+
+- **Изменение / Фича** → fill the existing Story's description from `story.md` with `editJiraIssue`; don't create a second Story.
+- **Эпик** → the intake Story becomes v1; one more Story per later version from «Версии», each a piece users can see working. Summaries carry the version: «<Название> · v2: …». Link the Stories to each other («Relates»); each links the PRD.
+- **Sub-tasks** → by discipline from «Ответственные», using `subtask.md`: `[DESIGN]` only if there is UI and it is not done yet, `[FRONT]`, `[MOBILE]`, `[QA]`, `[PM]` (metric after release, for students). Don't create `[BACK]`: backend creates its own Sub-tasks from the contracts page. Create a `[BACK]` placeholder only if the PM asks.
+- Acceptance criteria are copied from the PRD with their IDs (`US-01`, `R-03`), not retold.
+
+**Bug:** one Bug from `bug.md`. Severity from its impact; ask the PM if unsure.
 
 ## 3. Show the plan and wait
 
@@ -47,6 +58,9 @@ Create nothing until the PM approves the plan.
 
 ## 5. Write back to the PRD
 
-Update the PRD page (`getConfluencePage`, then `updateConfluencePage`, both with `contentFormat: html` so inline comments and macros survive): the passport «Стори» row and the «Задачи в Jira» block with every key and one line each. Tell the PM it's done.
+After the owner's OK mode and the Approval mode, update the PRD (`getConfluencePage`, then `updateConfluencePage`, both with `contentFormat: html` so inline comments and macros survive):
+
+- the passport «Стори» row (and «Апрув кор PM» with the Sub-task key);
+- the «Задачи в Jira» block with every key and one line each.
 
 Finish with the list of created or updated keys and their links.

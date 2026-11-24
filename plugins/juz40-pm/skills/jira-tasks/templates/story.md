@@ -1,9 +1,12 @@
-<!-- Use for: Story. Replace every <…>; drop a section only if the PRD has nothing for it. -->
+<!-- Use for: Story, filled after the owner's OK on the PRD. Replace every <…>; drop a section only if the PRD has nothing for it. -->
 <Одно-два предложения: что получает пользователь и где.>
 
-* Спека: <ссылка на PRD>
+* Класс: <Фича> · <студенты> · <high>
+* PRD для людей: <ссылка> · PRD для агентов: <ссылка>
+* Апрув оунера: <имя, дата>
 * Дизайн: <Figma или «без дизайна»>
 * Контракты: <ссылка на «Backend contracts: …» или «будут на дочерней странице спеки»>
+* Релиз: <тогл и когорты / сразу всем>
 
 ## Что входит
 - <US-01 · Название>

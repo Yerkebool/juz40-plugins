@@ -42,10 +42,12 @@ Delete or rewrite on sight:
 
 ## Self-check before showing the draft
 
-1. Every block required for the size is there, in the order of `blocks.md`.
+1. Every block required for the type and the class is there, in the order of `blocks.md`.
 2. No banned phrase (search the draft for each).
 3. Every acceptance criterion is checkable with yes/no and tagged.
 4. Every rule `R-…` names the stories it serves; every story with logic has a rule or is self-contained.
 5. Every «не определено» points to an `ОВ-…`; every `ОВ-…` has an owner.
 6. Every UI text that matters is quoted verbatim.
 7. **Cold read.** Read the draft as a developer who sees it for the first time. Write down every question you would ask before building. Answer each one in the document, or turn it into an open question.
+8. **PRD для людей** (Фича, Эпик): reads in 3 minutes; sentences up to 15 words; no development words (API, эндпойнт, DTO, бэк, фронт, миграция); every open question has a person and a date; someone outside the project understands what changes for them personally.
+9. **PRD для агентов** does not repeat the problem, goal, solution, «Чего не будет», decisions or open questions: it links to the parent. Nothing on the two pages contradicts each other.

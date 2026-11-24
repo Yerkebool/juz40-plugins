@@ -1,7 +1,7 @@
 {
   "name": "juz40-pm",
-  "version": "0.4.0",
-  "description": "Product workflow for the Juz40 LMS: one flow from idea to Jira — brainstorm, grill until nothing is vague, PRD in Confluence assembled from blocks, Jira stories and sub-tasks in DV, and updates when decisions change.",
+  "version": "0.6.0",
+  "description": "Product discovery for the Juz40 LMS (changes, features, epics), everything except design: context document, task class (type, audience, Product complexity low/mid/high), brainstorm and grilling with must-ask questions and loops back, readiness gate, metric, PRD in Confluence from templates by type, owner and core PM approvals, Jira stories, sub-tasks and bugs from templates, and updates when decisions change.",
   "author": {
     "name": "Yerkebulan Aimakhanov"
   },
@@ -14,13 +14,21 @@
     "juz40",
     "prd",
     "prd-update",
-    "product"
+    "product",
+    "complexity",
+    "templates",
+    "bug",
+    "epic",
+    "context-doc",
+    "metrics"
   ],
   "license": "MIT",
   "skills": [
     "./skills/feature-flow",
+    "./skills/context-doc",
     "./skills/product-brainstorming",
     "./skills/grilling",
+    "./skills/feature-metrics",
     "./skills/prd",
     "./skills/jira-tasks",
     "./skills/prd-update"

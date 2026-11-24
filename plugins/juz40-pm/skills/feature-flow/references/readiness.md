@@ -2,19 +2,26 @@
 
 Used twice: as the root of the grilling design tree, and as the gate before writing.
 
-## Size
+## Required topics
 
-Decide the size early; it sets which topics are required.
+The class (`complexity.md`) decides which topics are required.
 
-| Size | When | Required topics |
-|---|---|---|
-| **Изменение** | Changes existing behaviour. A few days of work. No new screens, no new role. | 1, 2, 3, 4, 7, 8, 12 |
-| **Фича** | New behaviour or a new screen. One release, one Story. | 1–13 |
-| **Большая фича** | Several versions or stages, several roles or teams. One Story per version. | 1–15 |
+**By type:**
 
-New screens or a new role make an «Изменение» a «Фича». Several releases make a «Фича» a «Большая фича».
+| Type | Required topics |
+|---|---|
+| **Изменение** | 1, 2, 3, 4, 7, 8, 12 |
+| **Фича** | 1–13 |
+| **Эпик** | 1–15 |
 
-For an Изменение, topic 3 needs no dropped alternative, and topic 6 is needed only when the change alters a sequence of steps. Any other topic becomes required for any size as soon as the feature touches it (a new stored field → 9, a rollout toggle → 15).
+For an Изменение, topic 3 needs no dropped alternative, and topic 6 is needed only when the change alters a sequence of steps. Any other topic becomes required as soon as the feature touches it (a new stored field → 9, a rollout toggle → 15).
+
+**Added by level and audience:**
+
+- **high:** 9, 14 and 15 for any type. Every ⚠ gets a second pass. Before the gate passes, give the brief alone to a separate agent (Agent tool) with the task «прочитай как разработчик, который видит это впервые; выпиши все вопросы, без которых не начнёшь». Every question it returns is answered or becomes an open question.
+- **mid:** ⚠ in topics 7 and 8 always gets a second pass.
+- **low:** ⚠ outside topics 1, 3 and 7 may become an open question with an owner, without a second pass.
+- **Студенты:** 2 needs a metric, and 14 is required when the goal has one.
 
 ## Topics
 
@@ -53,3 +60,7 @@ These mark an answer ⚠ even when the PM sounds sure:
 ## Contradictions
 
 Mark ⛔ when an answer conflicts with an earlier answer, with the previous version of the feature, with an existing Confluence spec, or with how the platform works. Say which two things conflict and ask which one wins.
+
+## The class itself
+
+The gate also checks the class. If the answers moved the task to another type or level (a new screen, a new role, more students, the core path), say so, change the class in the brief, and grill the topics the new class adds (`loops.md`).
