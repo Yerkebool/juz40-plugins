@@ -11,7 +11,7 @@ intake and class → brainstorm → grill → readiness → metric → core PM (
 → design (prd-to-design, not here) → remarks loop → owner's OK → Jira sub-tasks
 ```
 
-You can start in the middle (a Jira key, a draft, notes, remarks after ПБР or QA) and skip stages that are already done. The class and the readiness gate are never skipped: nothing vague goes into the PRD as a fact.
+You can start in the middle (a Jira key, a draft, notes, remarks after ПБР or QA) and skip stages that are already done. The brief lives in Confluence («<Название> — бриф») and is saved at every checkpoint: in any chat, «продолжим DV-XXXX» picks the task up where it stopped. The class and the readiness gate are never skipped: nothing vague goes into the PRD as a fact.
 
 When a decision changes later, use `prd-update`.
 
@@ -42,6 +42,7 @@ The Juz40 must-ask questions live in `feature-flow`, not in the copied skills: s
 |---|---|
 | Type, audience, Product complexity low / mid / high, what they change | `skills/feature-flow/references/complexity.md` |
 | Must-ask questions: intake, brainstorm, before the PRD | `skills/feature-flow/references/must-ask.md` |
+| The brief in Confluence: checkpoints, resume from any chat | `skills/feature-flow/references/state.md` |
 | When to go back to brainstorm or grilling, limits, re-approval | `skills/feature-flow/references/loops.md` |
 | What must be known before writing, vague answers | `skills/feature-flow/references/readiness.md` |
 | The brief (handoff between stages) | `skills/feature-flow/references/brief.md` |

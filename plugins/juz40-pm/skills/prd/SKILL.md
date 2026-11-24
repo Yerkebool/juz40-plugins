@@ -16,7 +16,7 @@ Turn a confirmed brief into PRD pages in Confluence.
 
 ## 1. Get a confirmed brief
 
-- Coming from `feature-flow`: the PM has confirmed the brief. Go on.
+- Coming from `feature-flow`: the PM has confirmed the brief. Read it from the brief page «<Название> — бриф» in Confluence, not from memory of the chat.
 - Called directly with notes, a Jira key, a Confluence page or a chat: don't write from raw material. Load `feature-flow` and start it at its readiness gate (stage 3) with that material. Come back here with the confirmed brief.
 - Changing a published PRD because a decision changed: use `prd-update` instead.
 - High and the core PM has not said «берём в работу» yet: you may draft, but don't publish (`feature-flow` stage 5).
@@ -52,6 +52,7 @@ Show the drafts in chat: PRD для людей first, then PRD для агент
 - Where it goes: find the PM's recent pages (`space = SD AND creator = currentUser() AND type = page ORDER BY created DESC`) and propose the same parent folder or page. Ask once if unclear.
 - `createConfluencePage` with `contentFormat: markdown`: PRD для людей (or the single page) first, then PRD для агентов as its child. Then update each passport so the two pages link each other.
 - If a «<Название> — контекст» page exists, put the PRD next to it and link it from the passport.
+- Move the brief page under PRD для людей (`updateConfluencePage` with `parentId`), link the PRD from the brief, and save the brief: «Где мы: 6. PRD опубликован», next step design or the owner's OK.
 - Status: «Черновик». It becomes «На согласовании» when the package goes to the owner (`feature-flow` stage 8).
 
 Finish with the page URLs. Then hand back to `feature-flow` if it is driving; otherwise say the next step: `prd-to-design` if there is UI, otherwise the owner's OK.

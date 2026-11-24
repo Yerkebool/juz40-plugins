@@ -63,4 +63,6 @@ After the owner's OK mode and the Approval mode, update the PRD (`getConfluenceP
 - the passport «Стори» row (and «Апрув кор PM» with the Sub-task key);
 - the «Задачи в Jira» block with every key and one line each.
 
+In the after-the-owner's-OK mode, also close the brief: «Где мы: Discovery закрыт ‹дата›», one row in «Журнал».
+
 Finish with the list of created or updated keys and their links.

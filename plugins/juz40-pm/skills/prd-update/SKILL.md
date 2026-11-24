@@ -55,6 +55,7 @@ Then the outside impact: which issues change and how, which teams need to know. 
 - Add a row to «Решения» (create the block if missing): «Вопрос | Решение | Кто решил | Когда».
 - Add a row to «История изменений» (create it if missing): date, author, what changed with the IDs.
 - Update «Обновлён» in the passport.
+- If the brief page exists and discovery is not closed, add the change to its «Петли» and «Журнал» (`../feature-flow/references/state.md` §2).
 - Change each fact on the page where it lives (`../prd/references/blocks.md`, «Where blocks live»): why, what, decisions and open questions on PRD для людей; stories, rules, data and release on PRD для агентов. Keep both pages' status equal.
 - If the change alters the direction, the scope or the class and the status is «Согласовано оунером»: set «На согласовании» and tell the PM the owner's OK is needed again, and the core PM's for high (`loops.md`, rule 6).
 

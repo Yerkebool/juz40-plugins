@@ -5,7 +5,7 @@
 | Cloud ID | `93b1beb0-c257-47a6-9917-d6c2acd3e5aa` |
 | Space key | `SD` (Juz40 LMS Platform) |
 | Body format | `markdown` for new pages; `html` for every update of an existing page (keeps inline comments and macros) |
-| Team templates | page «Шаблоны документации» (`724140033`): «Шаблон: Контекстный документ», «Шаблон: PRD для людей», «Шаблон: PRD для агентов — Фича», «Шаблон: PRD для агентов — Эпик», «Шаблон: Изменение», «Шаблон: Backend contracts» |
+| Team templates | page «Шаблоны документации» (`724140033`): «Шаблон: Контекстный документ», «Шаблон: Бриф», «Шаблон: PRD для людей», «Шаблон: PRD для агентов — Фича», «Шаблон: PRD для агентов — Эпик», «Шаблон: Изменение», «Шаблон: Backend contracts» |
 
 If a team template in Confluence and a template in `../templates/` disagree, the Confluence one wins: say so to the PM and offer to align the plugin.
 
@@ -15,6 +15,7 @@ If a team template in Confluence and a template in `../templates/` disagree, the
 <раздел продукта или папка ведущего>
 ├── <Название> — контекст                          PM · до discovery, передаётся ведущему (не всегда)
 └── <Название>                                     ведущий · PRD для людей (Изменение: единственная страница)
+    ├── <Название> — бриф                          ведущий · с входа в discovery; до PRD лежит под контекстом или в разделе
     ├── PRD для агентов: <Название>                ведущий · Фича, Эпик
     ├── Backend contracts: <Название>              бэк, по своему шаблону
     ├── Тест-кейсы: DV-XXXX — <Название> — Full + Edge Cases   QA

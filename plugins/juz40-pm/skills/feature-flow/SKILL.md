@@ -1,6 +1,6 @@
 ---
 name: feature-flow
-description: Run Juz40 discovery for a feature or an epic from idea (or a «— контекст» document) to the owner's OK, everything except design — intake and task class (type, audience, Product complexity low/mid/high), brainstorm, grilling with must-ask questions, readiness gate, metric, core PM approval, PRD in Confluence, remarks loops after ПБР / design / QA, owner's OK, Jira sub-tasks. Use when a PM starts any new feature, change or bug ("новая фича", "есть идея", "пришла задача от бизнеса", "надо сделать доку и задачи", "давай с нуля", "вернулись замечания после ПБР / от QA / от дизайнера") or brings a Jira key or a request and wants the whole thing done.
+description: Run Juz40 discovery for a feature or an epic from idea (or a «— контекст» document) to the owner's OK, everything except design — intake and task class (type, audience, Product complexity low/mid/high), brainstorm, grilling with must-ask questions, readiness gate, metric, core PM approval, PRD in Confluence, remarks loops after ПБР / design / QA, owner's OK, Jira sub-tasks. Use when a PM starts any new feature, change or bug ("новая фича", "есть идея", "пришла задача от бизнеса", "надо сделать доку и задачи", "давай с нуля", "вернулись замечания после ПБР / от QA / от дизайнера") or brings a Jira key or a request and wants the whole thing done. Also use it to pick a task up where it stopped, from any chat ("продолжим DV-XXXX", "где мы остановились", "вернулся к задаче").
 ---
 
 # Feature flow
@@ -11,7 +11,7 @@ Discovery for every Juz40 task, up to design and around it:
 
 Design is not part of this skill: `prd-to-design`, SU10 and the designer's review do it. This skill hands off to design and takes the remarks back.
 
-The handoff between stages is the **brief** (`references/brief.md`). Rules:
+The handoff between stages is the **brief**, a Confluence page «<Название> — бриф» (`references/brief.md`). It is saved at every checkpoint, so any chat or agent can resume the task where it stopped. Rules:
 
 | What | File |
 |---|---|
@@ -19,10 +19,17 @@ The handoff between stages is the **brief** (`references/brief.md`). Rules:
 | Questions that must be answered at each stage | `references/must-ask.md` |
 | What must be known before the PRD | `references/readiness.md` |
 | When to go back to brainstorm or grilling | `references/loops.md` |
+| Where the brief lives, when to save it, how to resume | `references/state.md` |
 
-The stages are a means, not a ritual: skip whatever the brief already settles. Never skip the class and the readiness gate.
+The stages are a means, not a ritual: skip whatever the brief already settles. Never skip the class, the readiness gate, or a save at a checkpoint (`state.md` §2).
 
 Talk to the PM in the language they write in (Russian or Kazakh).
+
+## Start: a new task or one already in progress
+
+The person names an existing task (a DV key, a link, a name) or says «продолжим», «где мы остановились» → resume by `state.md` §4 before anything else, and continue from the stage it finds.
+
+A new task → stage 0.
 
 ## 0. Intake and class
 
@@ -37,7 +44,8 @@ Talk to the PM in the language they write in (Russian or Kazakh).
 5. **Path.** For someone who joins without context, show the path for this class in at most six lines: the stages ahead, what each produces, who approves where. Example: «Фича · студенты · mid: прожарка → метрика → PRD (2 страницы) → макеты → замечания → «ок» оунера → Sub-tasks. Кор PM не нужен».
 6. **Баг** → stop here. Load `jira-tasks` in bug mode; QA takes it to `/triage`. No brainstorm, no PRD.
 7. **Story.** Find the DV Story for this task. If there is none, load `jira-tasks` in intake mode to create it. Discovery runs under that Story.
-8. Pick the entry point and say it in one line:
+8. **Brief page.** Create «<Название> — бриф» in Confluence (`state.md` §1) and add its link to the Story description (`editJiraIssue`). Ask where it goes in the same message as the class.
+9. Pick the entry point and say it in one line:
    - Nothing decided yet, or the level is high → **1. Brainstorm**.
    - The direction is decided («бизнес сказал, делаем X») and the level is low or mid → **2. Grill**.
    - A context document or detailed notes exist → build the brief from them; its open questions go to **2. Grill**, or straight to **3. Readiness** if there are none.
@@ -59,7 +67,7 @@ Done when the PM names the direction. Show the problem / direction part of the b
 Load `grilling` and follow it. The root of the design tree is `readiness.md`, in its order. The minimum question set is `must-ask.md` §2 for the level.
 
 - Facts are yours to find, not the PM's. Recommended answers lean on how the platform already works («как в курсе ученика», «как в v1»).
-- Every round, put the answers into the brief. Quote the PM's own words for decisions.
+- Before sending a round, save its questions to «Открытый раунд»; after the answers, save them into the brief (`state.md` §2). Quote the person's own words for decisions.
 - Ask only about the branches the class needs.
 
 ## 3. Readiness gate
@@ -71,7 +79,7 @@ Check the brief against `readiness.md`, including the class itself. Show:
 
 ✅ settled · ⚠ vague · ❌ missing · ⛔ contradicts an earlier answer or an existing doc.
 
-- **All ✅** → show the full brief, the PM confirms it, go on. Mid or high and a non-PM leads: the PM-partner reads the brief now (`complexity.md` §6); their remarks go through `loops.md`.
+- **All ✅** → give the brief link and its key decisions in at most ten lines; the PM confirms the brief, go on. Mid or high and a non-PM leads: the PM-partner reads the brief now (`complexity.md` §6); their remarks go through `loops.md`.
 - **Anything else** → name the loop (`loops.md`) and run the second grilling pass on the gaps only. Each question quotes the vague answer, says why it isn't enough to build from, and offers concrete options with a recommendation.
 - Limits and escalation: `loops.md` rules 3 and 4. The PM can say «пиши с открытыми вопросами» at any point, except for high blockers (rule 3).
 
@@ -101,7 +109,7 @@ Mid or high and a non-PM leads: the PM-partner reads the PRD before it goes to t
 
 ## 7. Hand off to design
 
-- UI changes → the next step is `prd-to-design`, then the designer's review. Say so and stop here. The PM comes back with the result or with remarks.
+- UI changes → the next step is `prd-to-design`, then the designer's review. Say so, save «Где мы: 7. Дизайн, ждём макеты», and stop here. The lead comes back with the result or with remarks, from any chat.
 - No UI → go to 8.
 
 **Coming back with remarks** (ПБР, the designer, `prd-to-design`, QA `/spec-readiness`): read the PRD and the Story, list the remarks, sort each one by `loops.md`, show the sorting in a table «Замечание | Куда | Почему», and run the loops. After the PRD is published, changes go through `prd-update`.
@@ -110,7 +118,7 @@ Mid or high and a non-PM leads: the PM-partner reads the PRD before it goes to t
 
 The package is the PRD, the mockups and the test cases. The owner has 2 working days; silence is not consent. High: the core PM approves the package too (Sub-task «[PM] Апрув кор PM: пакет перед разработкой», via `jira-tasks` approval mode).
 
-1. Write the PM a short message for the owner: class, what changes, links to both PRD pages, Figma, test cases, open questions.
+1. Write the PM a short message for the owner: class, what changes, links to both PRD pages, Figma, test cases, open questions. Save «Ждём: оунер с ‹дата›».
 2. When the PM reports the OK, record it in both PRD passports: «Согласовано оунером: <имя>, <дата>» (`updateConfluencePage`, `contentFormat: html`), and set both pages' status to «Согласовано оунером <дата>».
 3. Unconfirmed class from stage 0 closes here.
 
@@ -126,6 +134,8 @@ Give the PM, in a few lines:
 - what other teams take from here: backend writes `Backend contracts: <Название>` and its own `[BACK]` sub-tasks, QA writes test cases from the User Stories;
 - the open questions that still block development, with owners.
 
-## Long tasks
+Close the brief: «Discovery закрыт ‹дата›» (`state.md` §5).
 
-The brief lives in the conversation. Discovery usually spans several sessions (design and QA happen in between): offer to save the brief as `brief-<slug>.md` in the current folder. A new session reads it and the PRD, says where the task is, and continues from that stage.
+## Stopping
+
+When the person stops mid-stage, save the brief and tell them in one line how to come back: «Напиши в любом чате: продолжим DV-XXXX» (`state.md` §5).
